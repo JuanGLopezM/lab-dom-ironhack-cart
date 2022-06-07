@@ -15,20 +15,38 @@ function updateSubtotal(product) {
 function calculateAll() {
   // code in the following two lines is added just for testing purposes.
   // it runs when only iteration 1 is completed. at later point, it can be removed.
-   const singleProduct = document.querySelector('.product');
-   updateSubtotal(singleProduct);
+  // const singleProduct = document.querySelector('.product');
+  // updateSubtotal(singleProduct);
   // end of test
   let sumatorio = 0
 
   // ITERATION 2
-  //... your code goes here
+  const allItems = document.querySelectorAll(".product");
+  allItems.forEach((item)=>{updateSubtotal(item)})
 
-  // faltan adjudicar los valores del sumatorio en la caja del Total
-
+  /*const allItems = document.querySelectorAll(".product");
+  allItems.forEach((item)=>{
+    let subTotal = updateSubtotal(item);
+    sumatorio +=subTotal;
+    console.log(subtotal)*/
   // ITERATION 3
   //... your code goes here
-  
+
+
+
+  const productsElements= document.querySelectorAll('.product');
+  let subtotal = updateSubtotal(productsElements[0]);
+  let totalElement = document.querySelector('#total-value span');
+  totalElement.innerText = subtotal;
+  // faltan adjudicar los valores del sumatorio en la caja del Total
+
 }
+
+
+
+
+
+
 
 // ITERATION 4
 
