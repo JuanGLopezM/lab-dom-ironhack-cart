@@ -29,8 +29,9 @@ function calculateAll() {
     let subTotal = updateSubtotal(item);
     sumatorio +=subTotal;
     console.log(subtotal)*/
+
+
   // ITERATION 3
-  //... your code goes here
 
 
 
