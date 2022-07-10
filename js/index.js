@@ -2,14 +2,15 @@
 
 function updateSubtotal(product) {
   const price = product.querySelector('.price span');
-  const priceNumber = price.innerText;
+  const priceNumber = price.innerHTML;
 
   const quantity = product.querySelector('.quantity input');
   const quantityNumber = quantity.value;
-  let subTotalCalc = priceNumber * quantityNumber;
-  let subTotal = product.querySelector('.subtotal span')
-  subTotal.innerText = subTotalCalc;
-  return subTotal.innerText;
+  const subTotal = product.querySelector('.subtotal span')
+  const subTotalCalc = priceNumber * quantityNumber;
+  
+  subTotal.innerHTML = subTotalCalc;
+  return subTotalCalc;
   }
 
 function calculateAll() {
@@ -18,42 +19,26 @@ function calculateAll() {
   // const singleProduct = document.querySelector('.product');
   // updateSubtotal(singleProduct);
   // end of test
-  let sumatorio = 0
+  let totalSum = 0;
 
   // ITERATION 2
-  const allItems = document.querySelectorAll(".product");
-  allItems.forEach((item)=>{updateSubtotal(item)})
+  const products = document.querySelectorAll(".product");
 
-  /*const allItems = document.querySelectorAll(".product");
-  allItems.forEach((item)=>{
-    let subTotal = updateSubtotal(item);
-    sumatorio +=subTotal;
-    console.log(subtotal)*/
+  products.forEach((singleProduct)=>{
+    subtotal= updateSubtotal(singleProduct);
+    totalSum += subtotal;
+  })
 
-
-  // ITERATION 3
-
-
-
-  const productsElements= document.querySelectorAll('.product');
-  let subtotal = updateSubtotal(productsElements[0]);
-  let totalElement = document.querySelector('#total-value span');
-  totalElement.innerText = subtotal;
-  // faltan adjudicar los valores del sumatorio en la caja del Total
-
+  // ITERATION 3  
+  let total = document.querySelector('#total-value span');
+  total.innerHTML = totalSum;
 }
-
-
-
-
-
-
-
 // ITERATION 4
 
 function removeProduct(event) {
-  const target = event.currentTarget;
+  const target = event.currentTarget.parentNode.parentNode;
   console.log('The target in remove is:', target);
+  
   //... your code goes here
 }
 
